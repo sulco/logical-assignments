@@ -113,6 +113,11 @@ li {
 input[type=checkbox],
 label {
   cursor: pointer;
+  margin-right: 8px;
+}
+
+label {
+  display: flex;
 }
 
 header {

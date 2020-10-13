@@ -59,15 +59,11 @@
             </template>
           </select>
 				</td>
-				<td :class="{ assigned: assigned[1], sc: !assigned[1] }">
-          x = <output x-bind:value="format(x[1])"></output>
-        </td>
-				<td :class="{ assigned: assigned[2], sc: !assigned[2] }">
-          x = <output x-bind:value="format(x[2])"></output>
-        </td>
-				<td :class="{ assigned: assigned[3], sc: !assigned[3] }">
-          x = <output x-bind:value="format(x[3])"></output>
-        </td>
+        <template x-for="i in [1, 2, 3]" :key="i">
+          <td :class="{ assigned: assigned[i], sc: !assigned[i] }">
+            x = <output x-bind:value="format(x[i])"></output>
+          </td>
+        </template>
 				<td @click="save()">save</td>
 			</tr>
 
