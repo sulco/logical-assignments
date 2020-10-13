@@ -1,0 +1,91 @@
+<main x-data="assignments()">
+
+  <header>
+    <h1>Logical assignment operators in JavaScript & TypeScript</h1>
+
+    <label>
+      <input type="checkbox" x-model="showSc">
+      Display short-circuiting
+    </label>
+    <template x-if="showSc">
+      <div class="description">
+        <ul>
+          <li>
+            <code>a &&= b</code> only assigns if <code>x</code> is truthy
+          </li>
+          <li>
+            <code>a ||= b</code> only assigns if <code>x</code> is falsy
+          </li>
+          <li>
+            <code>a ??= b</code> only assigns if <code>x</code> is nullish
+          </li>
+        </ul>
+
+        <div class="legend">
+          <p>Legend:</p>
+          <ul>
+            <li><code class="sc"> </code> short-circuiting</li>
+            <li><code class="assigned"> </code> assignment</li>
+          </ul>
+        </div>
+      </div>
+    </template>
+  </header>
+
+	<table x-on:keydown.enter="save()" :class="{'show-sc': showSc}">
+		<thead>
+			<tr>
+				<th>x</th>
+				<th>y</th>
+				<th>x &&= y</th>
+				<th>x ||= y</th>
+				<th>x ??= y</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select @input="set('x', $event.target.value)">
+            <template x-for="(v, i) in xValues" :key="i">
+              <option x-bind:value="i" x-text="v.label"></option>
+            </template>
+          </select>
+				</td>
+				<td>
+					<select @input="set('y', $event.target.value)">
+            <template x-for="(v, i) in yValues" :key="i">
+              <option x-bind:value="i" x-text="v.label"></option>
+            </template>
+          </select>
+				</td>
+				<td :class="{ assigned: assigned[1], sc: !assigned[1] }">
+          x = <output x-bind:value="format(x[1])"></output>
+        </td>
+				<td :class="{ assigned: assigned[2], sc: !assigned[2] }">
+          x = <output x-bind:value="format(x[2])"></output>
+        </td>
+				<td :class="{ assigned: assigned[3], sc: !assigned[3] }">
+          x = <output x-bind:value="format(x[3])"></output>
+        </td>
+				<td @click="save()">save</td>
+			</tr>
+
+			<template x-for="(values, i) in saved" :key="i">
+				<tr>
+					<td x-text="values[0]"></td>
+					<td x-text="values[1]"></td>
+					<td x-text="values[2]" :class="{ assigned: values[5][1], sc: !values[5][1] }"></td>
+					<td x-text="values[3]" :class="{ assigned: values[5][2], sc: !values[5][2] }"></td>
+					<td x-text="values[4]" :class="{ assigned: values[5][3], sc: !values[5][3] }"></td>
+					<td @click="remove(i)">remove</td>
+				</tr>
+			</template>
+		</tbody>
+	</table>
+</main>
+
+<footer>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment#Browser_compatibility" target="_blank">
+    Current support</a>: Chrome, Edge, Firefox, Safari, TypeScript 4.0
+</footer>

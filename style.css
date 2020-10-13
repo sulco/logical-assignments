@@ -1,0 +1,142 @@
+* {
+  font-family: Lato, Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  padding: 0 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+main, footer {
+  width: 780px;
+  margin: 0 auto;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  padding: 1em;
+  font-size: 80%;
+  color: #888;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 30px;
+  margin: 1em 0;
+}
+
+a {
+  color: hsl(210, 80%, 45%);
+}
+
+table, th, td {
+  border: solid 1px #888;
+  border-collapse: collapse;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+th, td {
+  padding: 0.2em 0.5em;
+  width: 150px;
+}
+
+tr > :nth-child(-n + 2) {
+  width: 2ch;
+}
+
+.show-sc .assigned,
+.legend .assigned {
+  background: hsl(126, 100%, 96%);
+}
+
+.show-sc .sc,
+.legend .sc {
+  background: hsl(342, 100%, 96%);
+}
+
+/* td:nth-child(2) {
+  background: hsl(27, 100%, 93%);
+} */
+
+th:last-child,
+td:last-child {
+  width: 7ch;
+}
+
+td:last-child {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 80%;
+  user-select: none;
+}
+
+td:last-child:hover {
+  font-weight: bold;
+}
+
+table {
+  margin: 0 auto;
+}
+
+select {
+  width: 14ch;
+  padding: 0.3em;
+  text-align: center;
+}
+
+output {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  background: #f5f5f5;
+  border: solid 1px #ddd;
+  border-radius: 3px;
+  padding: 0 0.4em;
+  margin: 0 0.2em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+input[type=checkbox],
+label {
+  cursor: pointer;
+}
+
+header {
+  margin-bottom: 2em;
+}
+
+.description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.legend ul {
+  padding-left: 0;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+}
+
+.legend code {
+  display: inline-block;
+  width: 4ch;
+  height: 1em;
+  margin-right: 0.5em;
+  border-color: #888;
+}
